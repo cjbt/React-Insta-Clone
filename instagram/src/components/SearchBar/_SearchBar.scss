@@ -1,0 +1,42 @@
+.top-container {
+  border-bottom: 1px solid #e6e6e6;
+  background: white;
+  padding-top: 25px;
+  padding-bottom: 23px;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+
+  .search-bar-container {
+    // @include flex(center, flex-start, row);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: baseline;
+    max-width: 970px;
+    margin: 0 auto;
+
+    form {
+      .search {
+        text-align: center;
+        width: 210px;
+        height: 28px;
+        border-radius: 3px;
+        border: 1px solid #dbdbdb;
+        background: #fafafa;
+      }
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .icon-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
