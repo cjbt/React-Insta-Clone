@@ -8,13 +8,16 @@ const Search = props => {
         className='search'
         type='text'
         value={props.searchInput}
-        placeholder={`Search`}
+        placeholder='&#xF002; Search'
         onChange={e => props.searchInputChange(e)}
       />
     </form>
   );
 };
 
-Search.propTypes = {};
+Search.propTypes = {
+  searchInput: PropTypes.string,
+  searchInputChange: PropTypes.func
+};
 
 export default Search;

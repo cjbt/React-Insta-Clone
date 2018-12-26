@@ -41,22 +41,25 @@
         justify-content: space-between;
         .heart {
           width: 25px;
+          cursor: pointer;
         }
 
         .comment {
           width: 25px;
+          cursor: pointer;
         }
       }
       .icon-right {
         .bookmark {
           width: 20px;
+          cursor: pointer;
         }
       }
     }
     .likes {
       padding-top: 5px;
       padding-left: 15px;
-      font-size: 1.8rem;
+      font-size: 1.55rem;
       font-weight: 500;
     }
   }

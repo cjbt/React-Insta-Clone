@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import compass from './compass-regular.svg';
 import heart from './heart-regular.svg';
 import user from './user-regular.svg';
@@ -19,7 +18,5 @@ const IconTabs = props => {
     </div>
   );
 };
-
-IconTabs.propTypes = {};
 
 export default IconTabs;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import instaLogo from './instagram.svg';
 import instatext from './instatext.png';
 
@@ -15,7 +14,5 @@ const Logo = props => {
     </div>
   );
 };
-
-Logo.propTypes = {};
 
 export default Logo;

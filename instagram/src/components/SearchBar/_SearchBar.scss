@@ -19,13 +19,20 @@
     margin: 0 auto;
 
     form {
+      padding-right: 0;
       .search {
         text-align: center;
-        width: 210px;
+        width: 217px;
         height: 28px;
         border-radius: 3px;
         border: 1px solid #dbdbdb;
         background: #fafafa;
+        font-size: 1.4rem;
+        margin-right: 35px;
+
+        ::placeholder {
+          color: #999999;
+        }
       }
     }
 

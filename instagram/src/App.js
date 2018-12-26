@@ -10,14 +10,56 @@ class App extends Component {
     super(props);
     this.state = {
       dataList: dummyData,
-      searchInput: ''
+      searchInput: '',
+      commentValue: '',
+      username: 'cjletsGETIT',
+      text: '',
+      data: []
     };
+  }
+
+  componentDidMount() {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const targetUrl = 'http://71.65.239.221:5000/addComment';
+    fetch(proxyUrl + targetUrl)
+      .then(res => res.json())
+      .then(data => this.setState({ data }));
   }
 
   searchInputChange = e => {
     this.setState({
       searchInput: e.target.value
     });
+  };
+
+  commentValueChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    //console.log(this.state.commentValue);
+  };
+
+  commentSubmit = e => {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const targetUrl = 'http://71.65.239.221:5000/addComment';
+    e.preventDefault();
+
+    fetch(proxyUrl + targetUrl, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          username: data.username,
+          text: data.text
+        })
+      );
+    console.log(this.state.data, this.state.commentValue);
   };
 
   render() {
@@ -38,6 +80,10 @@ class App extends Component {
                 timestamp={post.timestamp}
                 key={post.timestamp}
                 comments={post.comments}
+                commentValue={this.state.commentValue}
+                commentValueChange={this.commentValueChange}
+                commentSubmit={this.commentSubmit}
+                text={this.state.text}
               />
             ))}
           </div>

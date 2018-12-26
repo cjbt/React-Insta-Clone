@@ -12,6 +12,9 @@ const Comment = props => {
   );
 };
 
-Comment.propTypes = {};
+Comment.propTypes = {
+  username: PropTypes.string,
+  text: PropTypes.string
+};
 
 export default Comment;

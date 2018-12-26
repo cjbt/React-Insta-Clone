@@ -23,6 +23,9 @@ const MiddleContentImg = props => {
   );
 };
 
-MiddleContentImg.propTypes = {};
+MiddleContentImg.propTypes = {
+  img: PropTypes.string,
+  likes: PropTypes.number
+};
 
 export default MiddleContentImg;

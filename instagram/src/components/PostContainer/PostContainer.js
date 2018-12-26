@@ -10,11 +10,33 @@ const PostContainer = props => {
     <div className='post-container'>
       <User thumbnail={props.thumbnail} username={props.username} />
       <MiddleContentImg img={props.img} likes={props.likes} />
-      <CommentSection comments={props.comments} timestamp={props.timestamp} />
+      <CommentSection
+        comments={props.comments}
+        timestamp={props.timestamp}
+        commendValue={props.commentValue}
+        commentValueChange={props.commentValueChange}
+        commentSubmit={props.commentSubmit}
+        text={props.text}
+      />
     </div>
   );
 };
 
-PostContainer.propTypes = {};
+PostContainer.propTypes = {
+  username: PropTypes.string,
+  thumbnail: PropTypes.string,
+  img: PropTypes.string,
+  likes: PropTypes.number,
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string,
+      text: PropTypes.string
+    })
+  ),
+  timestamp: PropTypes.string,
+  commentValue: PropTypes.string,
+  commentValueChange: PropTypes.func,
+  commentSubmit: PropTypes.func
+};
 
 export default PostContainer;

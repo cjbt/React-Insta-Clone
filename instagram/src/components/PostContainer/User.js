@@ -10,6 +10,9 @@ const User = props => {
   );
 };
 
-User.propTypes = {};
+User.propTypes = {
+  thumbnail: PropTypes.string,
+  username: PropTypes.string
+};
 
 export default User;
