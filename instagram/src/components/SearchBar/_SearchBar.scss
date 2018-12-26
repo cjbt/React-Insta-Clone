@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     max-width: 970px;
     margin: 0 auto;
 
@@ -32,11 +32,34 @@
     .logo-container {
       display: flex;
       flex-direction: row;
+      align-items: baseline;
+
+      .logos {
+        border-right: 1px solid #262626;
+
+        .insta-logo {
+          width: 25px;
+          margin-right: 15px;
+        }
+      }
+
+      .logo-name {
+        .insta-text {
+          width: 115px;
+          margin-left: 13px;
+        }
+      }
     }
 
     .icon-container {
       display: flex;
       flex-direction: row;
+      width: 135px;
+      justify-content: space-between;
+
+      .logo {
+        width: 25px;
+      }
     }
   }
 }

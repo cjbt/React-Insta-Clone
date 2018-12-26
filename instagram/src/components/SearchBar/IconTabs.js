@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import compass from './compass-regular.svg';
+import heart from './heart-regular.svg';
+import user from './user-regular.svg';
 
 const IconTabs = props => {
   return (
     <div className='icon-container'>
-      <div className='location'>location</div>
-      <div className='likes'>likes</div>
-      <div className='profile'>profile</div>
+      <div className='logo location'>
+        <img src={compass} alt='' />
+      </div>
+      <div className='logo likes'>
+        <img src={heart} alt='' />
+      </div>
+      <div className='logo profile'>
+        <img src={user} alt='' />
+      </div>
     </div>
   );
 };
