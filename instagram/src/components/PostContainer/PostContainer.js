@@ -13,7 +13,6 @@ const PostContainer = props => {
       <CommentSection
         comments={props.comments}
         timestamp={props.timestamp}
-        commendValue={props.commentValue}
         commentValueChange={props.commentValueChange}
         commentSubmit={props.commentSubmit}
         text={props.text}
@@ -34,7 +33,6 @@ PostContainer.propTypes = {
     })
   ),
   timestamp: PropTypes.string,
-  commentValue: PropTypes.string,
   commentValueChange: PropTypes.func,
   commentSubmit: PropTypes.func
 };

@@ -10,11 +10,11 @@
   right: 0;
 
   .search-bar-container {
-    // @include flex(center, flex-start, row);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    // @include flex(space-between, center, row);
     max-width: 970px;
     margin: 0 auto;
 

@@ -170,6 +170,35 @@ h1 {
 html {
   background: #fafafa;
 }
+
+.loading {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  .loading-insta {
+    width: 80px;
+    animation: instagram 3s infinite;
+  }
+  @keyframes instagram {
+    0% {
+      transform: rotate(0deg);
+    }
+    30% {
+      transform: rotate(360deg);
+    }
+
+    35% {
+      transform: rotate(355deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
 .App {
   margin: 0 auto;
 }

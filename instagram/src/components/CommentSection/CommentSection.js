@@ -44,7 +44,6 @@ CommentSection.propTypes = {
     })
   ),
   timestamp: PropTypes.string,
-  commentValue: PropTypes.string,
   commentSubmit: PropTypes.func,
   text: PropTypes.string
 };
