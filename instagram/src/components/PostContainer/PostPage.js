@@ -3,27 +3,169 @@ import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from './PostContainer';
 import Footer from '../Footer/Footer';
 import PropTypes from 'prop-types';
+import styled, { keyframes } from 'styled-components';
+
+const PostPageStyle = styled.div`
+  margin: 0 auto;
+  top: 0;
+  max-width: 935px;
+`;
+
+const App = styled.div`
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+
+  @media (max-width: 999px) {
+    position: relative;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
+
+  @media (max-width: 350px) {
+    width: 100%;
+  }
+`;
+
+const BottomContent = styled.div`
+  padding-top: 134px;
+  margin: 0 auto;
+  max-width: 935px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1;
+
+  @media (max-width: 999px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 112px;
+    border: none;
+    margin-top: -112px;
+    width: 100%;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
+
+  @media (max-width: 350px) {
+    width: 100%;
+  }
+`;
+
+const modal = keyframes`
+
+    0% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  
+`;
+
+const Modal = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${modal} 0.1s forwards;
+
+  @media (max-width: 740px) {
+    height: 150vh;
+  }
+`;
+
+const ModalMenuContainer = styled.div`
+  width: 400px;
+  background: white;
+  border-radius: 15px;
+  @media (max-width: 740px) {
+    margin-top: -490px;
+    width: 250px;
+  }
+`;
+
+const ModalMenu = styled.div`
+  text-align: center;
+`;
+
+const ModalOption = styled.button`
+  padding: 8px;
+
+  border-top-right-radius: ${props => (props.logoutp ? '15px' : 0)};
+  border-top-left-radius: ${props => (props.logoutp ? '15px' : 0)};
+  border-bottom: none;
+  padding-left: ${props => (props.logoutp ? '164.2px' : 0)};
+  padding-right: ${props => (props.logoutp ? '164.2px' : 0)};
+  cursor: pointer;
+
+  :active {
+    background: lightgray;
+  }
+
+  @media (max-width: 740px) {
+    padding: 8px 89px;
+  }
+
+  :hover {
+    color: red;
+  }
+
+  :active {
+    border-top-right-radius: ${props => (props.logoutp ? '15px' : 0)};
+    border-top-left-radius: ${props => (props.logoutp ? '15px' : 0)};
+    border-bottom-right-radius: ${props => (props.logoutp ? 0 : '15px')};
+    border-bottom-left-radius: ${props => (props.logoutp ? 0 : '15px')};
+  }
+
+  p {
+    width: 70px;
+  }
+`;
 
 const PostPage = props => {
   return (
     <React.Fragment>
-      <div className={props.isModalClicked ? 'modal' : null}>
-        <div className='modal-menu-container'>
-          <div className='modal-menu'>
-            <form onSubmit={props.logout}>
-              <button className='modal-option logout-p' onClick={props.logout}>
-                <p>Log Out</p>
-              </button>
-            </form>
+      {props.isModalClicked ? (
+        <Modal>
+          <ModalMenuContainer>
+            <ModalMenu>
+              <form onSubmit={props.logout}>
+                <ModalOption
+                  logoutp
+                  onClick={props.logout}
+                >
+                  <p>Log Out</p>
+                </ModalOption>
+              </form>
 
-            <p className='modal-option cancel-p' onClick={props.modalNoneClick}>
-              Cancel
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className='postpage'>
-        <div className='App'>
+              <ModalOption
+                onClick={props.modalNoneClick}
+              >
+                Cancel
+              </ModalOption>
+            </ModalMenu>
+          </ModalMenuContainer>
+        </Modal>
+      ) : null}
+      <PostPageStyle>
+        <App>
           <SearchBar
             searchInput={props.searchInput}
             searchInputChange={props.searchInputChange}
@@ -31,7 +173,7 @@ const PostPage = props => {
             isModalClicked={props.isModalClicked}
             modalClick={props.modalClick}
           />
-          <div className='bottom-content'>
+          <BottomContent>
             <div className='postouter'>
               {!props.dataList
                 ? ''
@@ -65,9 +207,9 @@ const PostPage = props => {
               lastName={props.lastName}
               profile={props.profile}
             />
-          </div>
-        </div>
-      </div>
+          </BottomContent>
+        </App>
+      </PostPageStyle>
     </React.Fragment>
   );
 };
