@@ -339,7 +339,8 @@ class App extends Component {
             <LoadingInsta src={insta} alt='' />
           </Loading>
         ) : (
-          <GlobalStyle>
+          <div>
+            <GlobalStyle />
             <PostPage
               searchInput={this.state.searchInput}
               searchInputChange={this.searchInputChange}
@@ -362,7 +363,7 @@ class App extends Component {
               modalNoneClick={this.modalNoneClick}
               heartDoubleClick={this.heartDoubleClick}
             />
-          </GlobalStyle>
+          </div>
         )}
       </React.Fragment>
     );
