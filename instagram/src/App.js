@@ -220,7 +220,7 @@ class App extends Component {
     this.timerHandle = setTimeout(() => {
       this.setState({
         dataList: dummyData,
-        comments: commentArr,
+        comments: commentArr, // [{...},{...}{...}]
         isLiked: isLiked,
         likedCounter: likedCounter
       });
@@ -258,6 +258,7 @@ class App extends Component {
   };
 
   commentValueChange = e => {
+    console.log(this.state.searchInput);
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -331,6 +332,26 @@ class App extends Component {
     });
   };
 
+  searchFilter = e => {
+    e.preventDefault();
+    let filteredPosts = [];
+    this.state.dataList.map(data => {
+      if (data.username.includes(this.state.searchInput)) {
+        filteredPosts.push(data);
+      }
+    });
+    if (this.state.searchInput === '') {
+      this.setState({
+        dataList: this.state.dataList
+      });
+    } else {
+      this.setState({
+        dataList: filteredPosts
+      });
+    }
+    console.log(this.state.searchInput);
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -362,6 +383,7 @@ class App extends Component {
               modalClick={this.modalClick}
               modalNoneClick={this.modalNoneClick}
               heartDoubleClick={this.heartDoubleClick}
+              searchFilter={this.searchFilter}
             />
           </div>
         )}

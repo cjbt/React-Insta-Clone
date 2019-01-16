@@ -12,7 +12,8 @@ const SearchBar = props => {
         <Logo isTop={props.isTop} />
         <Search
           searchInput={props.searchInput}
-          searchInputChange={props.searchInputChange}
+          commentValueChange={props.commentValueChange}
+          searchFilter={props.searchFilter}
         />
         <IconTabs
           isModalClicked={props.isModalClicked}

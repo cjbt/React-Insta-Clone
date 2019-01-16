@@ -108,11 +108,11 @@ const ModalMenu = styled.div`
 const ModalOption = styled.button`
   padding: 8px;
 
-  border-top-right-radius: ${props => (props.logoutp ? '15px' : 0)};
-  border-top-left-radius: ${props => (props.logoutp ? '15px' : 0)};
+  border-top-right-radius: ${props => (props.logoutp ? '15px' : '15px')};
+  border-top-left-radius: ${props => (props.logoutp ? '15px' : '15px')};
   border-bottom: none;
-  padding-left: ${props => (props.logoutp ? '164.2px' : 0)};
-  padding-right: ${props => (props.logoutp ? '164.2px' : 0)};
+  padding-left: ${props => (props.logoutp ? '164.2px' : '164.2px')};
+  padding-right: ${props => (props.logoutp ? '164.2px' : '164.2px')};
   cursor: pointer;
 
   :active {
@@ -147,19 +147,12 @@ const PostPage = props => {
           <ModalMenuContainer>
             <ModalMenu>
               <form onSubmit={props.logout}>
-                <ModalOption
-                  logoutp
-                  onClick={props.logout}
-                >
+                <ModalOption logoutp onClick={props.logout}>
                   <p>Log Out</p>
                 </ModalOption>
               </form>
 
-              <ModalOption
-                onClick={props.modalNoneClick}
-              >
-                Cancel
-              </ModalOption>
+              <ModalOption onClick={props.modalNoneClick}>Cancel</ModalOption>
             </ModalMenu>
           </ModalMenuContainer>
         </Modal>
@@ -168,10 +161,11 @@ const PostPage = props => {
         <App>
           <SearchBar
             searchInput={props.searchInput}
-            searchInputChange={props.searchInputChange}
+            commentValueChange={props.commentValueChange}
             isTop={props.isTop}
             isModalClicked={props.isModalClicked}
             modalClick={props.modalClick}
+            searchFilter={props.searchFilter}
           />
           <BottomContent>
             <div className='postouter'>
@@ -184,7 +178,7 @@ const PostPage = props => {
                       img={post.imageUrl}
                       likes={post.likes}
                       timestamp={post.timestamp}
-                      key={i}
+                      key={post.comments.text + post.timestamp}
                       index={i}
                       comments={props.comments[i]}
                       commentValueChange={props.commentValueChange}

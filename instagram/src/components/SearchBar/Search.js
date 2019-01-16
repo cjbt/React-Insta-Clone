@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 const Search = props => {
   return (
-    <form>
+    <form onSubmit={e => props.searchFilter(e)}>
       <input
         className='search'
         type='text'
+        name='searchInput'
         value={props.searchInput}
         placeholder={'Search'}
-        onChange={e => props.searchInputChange(e)}
+        onChange={props.commentValueChange}
         id={'search'}
       />
     </form>
