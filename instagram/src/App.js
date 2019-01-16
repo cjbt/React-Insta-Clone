@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 // import './components/style/App.scss';
 import dummyData from './dummy-data';
-import Authenticate from './components/Authentication/Authenticate';
+// import Authenticate from './components/Authentication/Authenticate';
 import PostPage from './components/PostContainer/PostPage';
 import insta from './instagram.svg';
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
+import Authenticate from './components/Authentication/Authenticate';
+import Login from './components/Login/Login';
 
 const GlobalStyle = createGlobalStyle`
 html,
@@ -207,11 +209,23 @@ class App extends Component {
       profile: localStorage.getItem('display'),
       isLiked: [],
       likedCounter: [],
-      isModalClicked: false
+      isModalClicked: false,
+      loginVerfied: false
     };
   }
 
   componentDidMount() {
+    const user = localStorage.getItem('username');
+
+    if (user) {
+      this.setState({
+        loginVerfied: true
+      });
+    } else {
+      this.setState({
+        loginVerfied: false
+      });
+    }
     console.log(window.localStorage);
     const commentArr = dummyData.map(data => data.comments);
     const isLiked = dummyData.map(data => false);
@@ -220,7 +234,7 @@ class App extends Component {
     this.timerHandle = setTimeout(() => {
       this.setState({
         dataList: dummyData,
-        comments: commentArr, // [{...},{...}{...}]
+        comments: commentArr,
         isLiked: isLiked,
         likedCounter: likedCounter
       });
@@ -392,4 +406,6 @@ class App extends Component {
   }
 }
 
-export default Authenticate(App);
+const Authentication = Authenticate(App)(Login);
+
+export default Authentication;

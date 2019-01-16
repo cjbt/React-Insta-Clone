@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Instagram from './instatext.png';
+import App from '../../App';
+import Authenticate from '../Authentication/Authenticate';
 
 // 3F97F0
 const Loginpage = styled.div`

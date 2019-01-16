@@ -1,7 +1,11 @@
 import React from 'react';
 import Login from '../Login/Login';
 
-const Authenticate = App =>
+// const Authenticate = App => Login => props => {
+//   return props.loginVerified ? <App /> : <Login />;
+// };
+
+const Authenticate = App => Login =>
   class extends React.Component {
     state = {
       loginVerfied: false
