@@ -1,8 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './_CommentSection.scss';
+// import './_CommentSection.scss';
 import Comment from './Comment';
 import ellipsis from './ellipsis.svg';
+import styled from 'styled-components';
+
+const TimeStamp = styled.div`
+  color: #999999;
+  padding-left: 15px;
+  font-size: 1.1rem;
+  padding-top: 3px;
+
+  padding-bottom: 8px;
+`;
+const AddComment = styled.div`
+  padding-top: 0;
+  border-top: 1px solid #efefef;
+  margin-left: 15px;
+  margin-right: 14px;
+  display: flex;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+const CommentInput = styled.input`
+  border: 0;
+  outline: 0;
+  width: 100%;
+  max-width: 560px;
+  height: 55px;
+  font-size: 1.4rem;
+`;
+const Elipsis = styled.img`
+  cursor: pointer;
+  width: 15px;
+  padding: 15px 0;
+`;
 
 const CommentSection = props => {
   return (
@@ -16,11 +50,10 @@ const CommentSection = props => {
           />
         ))}
       </div>
-      <div className='timestamp'>{props.timestamp}</div>
-      <div className='add-comment'>
+      <TimeStamp>{props.timestamp}</TimeStamp>
+      <AddComment>
         <form onSubmit={props.addNewComment}>
-          <input
-            className='comment-input'
+          <CommentInput
             type='text'
             value={props.text}
             placeholder='Add a comment...'
@@ -29,9 +62,9 @@ const CommentSection = props => {
           />
         </form>
         <div>
-          <img className='ellipsis' src={ellipsis} alt='' />
+          <Elipsis src={ellipsis} alt='' />
         </div>
-      </div>
+      </AddComment>
     </React.Fragment>
   );
 };

@@ -1,21 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const UserProfileStyle = styled.div`
+  height: 67px;
+  display: flex;
+  flex-direction: row;
+  z-index: 999;
+`;
+const ProfilePic = styled.img`
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 4px;
+  border: 0.5px solid lightgray;
+`;
+const MainUser = styled.div`
+  padding-left: 14px;
+  padding-top: 9px;
+`;
+const MainAlias = styled.div`
+  font-weight: 600;
+  font-size: 1.4rem;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+`;
+const MainFull = styled.div`
+  color: #999999;
+  padding-top: 5px;
+  font-size: 1.3rem;
+`;
 
 const UserProfile = props => {
   return (
-    <div className='user-profile'>
+    <UserProfileStyle>
       <div>
         <a
           href={`http://instagram.com/${props.username}`}
           target='_blank'
           rel='noopener noreferrer'
         >
-          <img className='profile-pic' src={props.profile} alt='' />
+          <ProfilePic src={props.profile} alt='' />
         </a>
       </div>
 
-      <div className='main-user'>
-        <div className='main-alias'>
+      <MainUser>
+        <MainAlias>
           <a
             href={`http://instagram.com/${props.username}`}
             target='_blank'
@@ -23,10 +54,10 @@ const UserProfile = props => {
           >
             {props.username}
           </a>
-        </div>
-        <div className='main-full'>{`${props.firstName}`}</div>
-      </div>
-    </div>
+        </MainAlias>
+        <MainFull>{`${props.firstName}`}</MainFull>
+      </MainUser>
+    </UserProfileStyle>
   );
 };
 
