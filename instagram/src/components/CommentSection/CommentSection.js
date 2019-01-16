@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './_CommentSection.scss';
 import Comment from './Comment';
 import ellipsis from './ellipsis.svg';
 import styled from 'styled-components';

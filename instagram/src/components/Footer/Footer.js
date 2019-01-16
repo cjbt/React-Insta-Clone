@@ -1,5 +1,4 @@
 import React from 'react';
-// import './_Footer.scss';
 import UserProfile from './UserProfile';
 import Stories from './Stories';
 import Suggestions from './Suggestions';
