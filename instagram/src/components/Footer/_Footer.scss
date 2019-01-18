@@ -1,0 +1,107 @@
+.footer {
+  margin: 0 auto;
+  max-width: 935px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+  padding-left: 27px;
+
+  @media (max-width: 999px) {
+    display: none;
+  }
+
+  .footerChild {
+  }
+
+  .user-profile {
+    height: 67px;
+    display: flex;
+    flex-direction: row;
+    z-index: 999;
+
+    .profile-pic {
+      width: 50px;
+      border-radius: 50%;
+      margin-left: 4px;
+      border: 0.5px solid lightgray;
+    }
+    .main-user {
+      padding-left: 14px;
+      padding-top: 9px;
+
+      .main-alias {
+        font-weight: 600;
+        font-size: 1.4rem;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+      .main-full {
+        color: #999999;
+        padding-top: 5px;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .stories-container {
+    width: 292px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    height: 222px;
+    z-index: 999;
+  }
+
+  .footer-box {
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+    justify-content: space-between;
+    padding: 16px 16px 0 16px;
+    overflow: hidden;
+  }
+
+  .box-left {
+    color: #999999;
+    font-size: 1.5rem;
+  }
+
+  .box-right {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .suggestions-container {
+    width: 292px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    height: 203px;
+    margin-top: 12px;
+  }
+
+  .bottom-links {
+    color: #c7c7c7;
+    padding-top: 18px;
+    .links {
+      line-height: 1.3rem;
+      span {
+        font-size: 1.125rem;
+      }
+      .link-anchor {
+        cursor: pointer;
+      }
+    }
+    .copyright {
+      padding-top: 25px;
+    }
+  }
+}
+
+.footer-fixed {
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  margin-top: -60px;
+}
